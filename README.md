@@ -13,7 +13,7 @@ A powerful chatbot application that runs locally on your machine using Ollama as
 
 ---
 
-## 🔧 Prerequisites
+## 🔧 Prerequisites (#prerequisites)
 
 Before you begin, ensure you have the following installed on your computer:
 
