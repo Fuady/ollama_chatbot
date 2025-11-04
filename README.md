@@ -27,7 +27,7 @@ Before you begin, ensure you have the following installed on your computer:
 
 ---
 
-## 📥 Installation
+## 📥 [Installation](#installation)
 
 ### Step 1: Install and Setup Ollama
 
@@ -70,7 +70,7 @@ Before you begin, ensure you have the following installed on your computer:
 1. **Clone or Download Project Files**
    
    Create a new directory and save these files:
-   - `chatbot_app.py` (main application)
+   - `ollama_chatbot.py` (main application)
    - `requirements.txt` (dependencies)
    - `README.md` (this file)
 
@@ -104,7 +104,7 @@ Before you begin, ensure you have the following installed on your computer:
 
 ---
 
-## 🚀 Running the Application
+## 🚀 [Running the Application](#running-the-application)
 
 ### Start the Chatbot
 
@@ -129,7 +129,7 @@ Before you begin, ensure you have the following installed on your computer:
 
 ---
 
-## 💡 Use Cases
+## 💡 [Use Cases](#use-cases)
 
 ### Use Case 1: Free Chat Mode (Open-Ended Questions)
 
@@ -209,136 +209,6 @@ This mode answers questions based on a specific document collection, making resp
 
 ---
 
-## 🔍 Troubleshooting
-
-### Problem: "No models found" error
-
-**Solution:**
-```bash
-# Check if Ollama is running
-curl http://localhost:11434/api/tags
-
-# Pull a model if none exist
-ollama pull llama2
-
-# Restart Ollama
-ollama serve
-```
-
-### Problem: "Error connecting to Ollama"
-
-**Solutions:**
-1. Verify Ollama is running: `ollama serve`
-2. Check if port 11434 is available
-3. Restart Ollama service
-4. Check firewall settings
-
-### Problem: "Failed to load documents"
-
-**Solutions:**
-1. Check your internet connection
-2. Verify the document URL is accessible
-3. Try reloading documents using the button in sidebar
-4. Check console for detailed error messages
-
-### Problem: Slow responses
-
-**Solutions:**
-1. Use a smaller model (e.g., `phi` or `llama2` instead of `llama2:13b`)
-2. Reduce number of context documents in RAG mode
-3. Ensure your computer has sufficient RAM
-4. Close other memory-intensive applications
-
-### Problem: Python package installation errors
-
-**Solutions:**
-```bash
-# Upgrade pip first
-pip install --upgrade pip
-
-# Install packages one by one
-pip install streamlit
-pip install requests
-pip install sentence-transformers
-pip install numpy
-pip install torch
-
-# On macOS with M1/M2 chip:
-pip install torch torchvision torchaudio
-```
-
-### Problem: "Module not found" errors
-
-**Solution:**
-```bash
-# Ensure virtual environment is activated
-# On Windows:
-venv\Scripts\activate
-
-# On macOS/Linux:
-source venv/bin/activate
-
-# Reinstall requirements
-pip install -r requirements.txt
-```
-
----
-
-## 📊 Model Recommendations
-
-| Model | Size | Speed | Quality | Use Case |
-|-------|------|-------|---------|----------|
-| `phi` | 1.3GB | Fast | Good | Quick responses, testing |
-| `llama2` | 3.8GB | Medium | Good | General purpose |
-| `mistral` | 4.1GB | Medium | Very Good | Balanced performance |
-| `llama2:13b` | 7.4GB | Slow | Excellent | Complex tasks |
-| `codellama` | 3.8GB | Medium | Good | Programming questions |
-
----
-
-## 🛠️ Advanced Configuration
-
-### Change Ollama API URL
-
-If Ollama is running on a different port or machine:
-
-```python
-# Edit chatbot_app.py
-OLLAMA_API_URL = "http://your-host:your-port/api"
-```
-
-### Use Different Document Source
-
-```python
-# Edit chatbot_app.py
-DOCUMENTS_URL = "your-document-url.json"
-```
-
-The document format should be:
-```json
-[
-  {
-    "question": "Sample question",
-    "text": "Sample answer",
-    "other_fields": "optional"
-  }
-]
-```
-
-### Customize Embedding Model
-
-```python
-# In DocumentRetriever.initialize_embeddings()
-self.model = SentenceTransformer('your-preferred-model')
-```
-
-Popular alternatives:
-- `all-mpnet-base-v2` (higher quality, slower)
-- `all-MiniLM-L6-v2` (balanced, default)
-- `paraphrase-MiniLM-L6-v2` (good for paraphrasing)
-
----
-
 ## 📝 Tips for Best Results
 
 ### For Free Chat Mode:
@@ -370,20 +240,9 @@ Popular alternatives:
 
 ---
 
-## 🤝 Support
-
-If you encounter issues:
-1. Check the Troubleshooting section
-2. Review Ollama logs: `ollama logs`
-3. Check Streamlit logs in the terminal
-4. Ensure all dependencies are correctly installed
-
----
-
 ## 📄 License
 
 This project is open source and available for educational and personal use.
 
 ---
 
-**Happy Chatting! 🚀**
